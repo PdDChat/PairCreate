@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PairCreate</string>
+    <string name="title">ペア作成ツール</string>
 </resources>
