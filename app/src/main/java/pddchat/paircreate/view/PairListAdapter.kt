@@ -23,7 +23,7 @@ internal class PairListAdapter : ListAdapter<Pair, PairListItemViewHolder>(ITEM_
     internal class PairListItemViewHolder(parent: ViewGroup) :
         RecyclerView.ViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.list_pair,
+                R.layout.item_pair_list,
                 parent,
                 false
             )
