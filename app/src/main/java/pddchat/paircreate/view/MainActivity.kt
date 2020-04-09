@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
                 Pair(teamNumber = 2, developer = listOf(Developer(name = "Dev3"), Developer(name = "Dev4")))
             ))
         }
-        recyclerView.layoutManager = LinearLayoutManager(this)
 
         // 区切り線の追加
         recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
