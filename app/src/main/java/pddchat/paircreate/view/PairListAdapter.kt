@@ -7,18 +7,18 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import pddchat.paircreate.R
-import pddchat.paircreate.model.Pair
+import pddchat.paircreate.model.PairInfo
 import pddchat.paircreate.view.PairListAdapter.PairListItemViewHolder
 
-private val ITEM_CALLBACK = object : DiffUtil.ItemCallback<Pair>() {
-    override fun areItemsTheSame(oldItem: Pair, newItem: Pair): Boolean =
+private val ITEM_CALLBACK = object : DiffUtil.ItemCallback<PairInfo>() {
+    override fun areItemsTheSame(oldItem: PairInfo, newItem: PairInfo): Boolean =
         oldItem.teamNumber == newItem.teamNumber
 
-    override fun areContentsTheSame(oldItem: Pair, newItem: Pair): Boolean =
+    override fun areContentsTheSame(oldItem: PairInfo, newItem: PairInfo): Boolean =
         oldItem == newItem
 }
 
-internal class PairListAdapter : ListAdapter<Pair, PairListItemViewHolder>(ITEM_CALLBACK) {
+internal class PairListAdapter : ListAdapter<PairInfo, PairListItemViewHolder>(ITEM_CALLBACK) {
 
     internal class PairListItemViewHolder(parent: ViewGroup) :
         RecyclerView.ViewHolder(
@@ -32,9 +32,9 @@ internal class PairListAdapter : ListAdapter<Pair, PairListItemViewHolder>(ITEM_
         private val pairName1: TextView = itemView.findViewById(R.id.pair_name1)
         private val pairName2: TextView = itemView.findViewById(R.id.pair_name2)
 
-        fun bind(pair: Pair) {
-            pairName1.text = pair.developer[0].name
-            pairName2.text = pair.developer[1].name
+        fun bind(pairInfo: PairInfo) {
+            pairName1.text = pairInfo.developer[0].name
+            pairName2.text = pairInfo.developer[1].name
         }
     }
 
