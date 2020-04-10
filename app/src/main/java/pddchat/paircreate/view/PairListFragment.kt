@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import pddchat.paircreate.R
@@ -35,5 +37,11 @@ class PairListFragment : Fragment() {
 
         // 区切り線の追加
         recyclerView.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+
+        val button = view.findViewById<Button>(R.id.setting_button)
+        button.setOnClickListener {
+            val navController = this.findNavController()
+            navController.navigate(R.id.pair_list_to_developer_list)
+        }
     }
 }

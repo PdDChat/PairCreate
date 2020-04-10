@@ -23,6 +23,18 @@
         android:name="pddchat.paircreate.view.PairListFragment"
         android:label="fragment_pair_list"
         tools:layout="@layout/fragment_pair_list">
+
+        <action
+            android:id="@+id/pair_list_to_developer_list"
+            app:destination="@id/developerListFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/developerListFragment"
+        android:name="pddchat.paircreate.view.DeveloperListFragment"
+        android:label="fragment_developer_list"
+        tools:layout="@layout/fragment_developer_list">
     </fragment>
 
 </navigation>
