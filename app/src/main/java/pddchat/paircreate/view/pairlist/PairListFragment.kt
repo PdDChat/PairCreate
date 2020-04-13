@@ -1,4 +1,4 @@
-package pddchat.paircreate.view
+package pddchat.paircreate.view.pairlist
 
 import android.os.Bundle
 import android.view.LayoutInflater

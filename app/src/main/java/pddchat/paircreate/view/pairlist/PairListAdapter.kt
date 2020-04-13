@@ -1,4 +1,4 @@
-package pddchat.paircreate.view
+package pddchat.paircreate.view.pairlist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import pddchat.paircreate.R
 import pddchat.paircreate.model.PairInfo
-import pddchat.paircreate.view.PairListAdapter.PairListItemViewHolder
+import pddchat.paircreate.view.pairlist.PairListAdapter.PairListItemViewHolder
 
 private val ITEM_CALLBACK = object : DiffUtil.ItemCallback<PairInfo>() {
     override fun areItemsTheSame(oldItem: PairInfo, newItem: PairInfo): Boolean =

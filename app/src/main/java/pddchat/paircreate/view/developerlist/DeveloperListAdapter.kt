@@ -1,4 +1,4 @@
-package pddchat.paircreate.view
+package pddchat.paircreate.view.developerlist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import pddchat.paircreate.R
 import pddchat.paircreate.model.Developer
-import pddchat.paircreate.view.DeveloperListAdapter.DeveloperListItemViewHolder
+import pddchat.paircreate.view.developerlist.DeveloperListAdapter.DeveloperListItemViewHolder
 
 private val ITEM_CALLBACK = object : DiffUtil.ItemCallback<Developer>() {
     override fun areItemsTheSame(oldItem: Developer, newItem: Developer): Boolean =
@@ -18,7 +18,9 @@ private val ITEM_CALLBACK = object : DiffUtil.ItemCallback<Developer>() {
         oldItem == newItem
 }
 
-internal class DeveloperListAdapter : ListAdapter<Developer, DeveloperListItemViewHolder>(ITEM_CALLBACK) {
+internal class DeveloperListAdapter : ListAdapter<Developer, DeveloperListItemViewHolder>(
+    ITEM_CALLBACK
+) {
 
     internal class DeveloperListItemViewHolder(parent: ViewGroup) :
         RecyclerView.ViewHolder(

@@ -1,4 +1,4 @@
-package pddchat.paircreate.view
+package pddchat.paircreate.view.developerlist
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -31,7 +31,8 @@ class DeveloperListFragment : Fragment() {
         val viewModel = DeveloperListViewModel()
         viewModel.observeDeveloper()
 
-        val adapter = DeveloperListAdapter()
+        val adapter =
+            DeveloperListAdapter()
         recyclerView = view.findViewById<RecyclerView>(R.id.developer_recycler_view)
         recyclerView.adapter = adapter.apply {
             val developer = viewModel.developer.value
