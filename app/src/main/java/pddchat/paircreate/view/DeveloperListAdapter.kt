@@ -12,7 +12,7 @@ import pddchat.paircreate.view.DeveloperListAdapter.DeveloperListItemViewHolder
 
 private val ITEM_CALLBACK = object : DiffUtil.ItemCallback<Developer>() {
     override fun areItemsTheSame(oldItem: Developer, newItem: Developer): Boolean =
-        oldItem.name== newItem.name
+        oldItem.name == newItem.name
 
     override fun areContentsTheSame(oldItem: Developer, newItem: Developer): Boolean =
         oldItem == newItem
