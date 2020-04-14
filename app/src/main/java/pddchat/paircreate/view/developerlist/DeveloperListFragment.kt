@@ -29,10 +29,9 @@ class DeveloperListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val viewModel = DeveloperListViewModel()
-        viewModel.observeDeveloper()
+        viewModel.observeDeveloper(context)
 
-        val adapter =
-            DeveloperListAdapter()
+        val adapter = DeveloperListAdapter()
         recyclerView = view.findViewById<RecyclerView>(R.id.developer_recycler_view)
         recyclerView.adapter = adapter.apply {
             val developer = viewModel.developer.value
@@ -48,7 +47,7 @@ class DeveloperListFragment : Fragment() {
         val button = view.findViewById<Button>(R.id.register_button)
         button.setOnClickListener {
             count++
-            viewModel.register(name + count)
+            viewModel.register(context, name + count)
             Toast.makeText(context, "register button push!", Toast.LENGTH_SHORT).show()
         }
 
