@@ -8,12 +8,12 @@ import pddchat.paircreate.model.PairInfo
 
 class PairListViewModel : ViewModel() {
 
-    private val _pairInfo: MutableLiveData<List<PairInfo>> = MutableLiveData()
-    val PairInfo: LiveData<List<PairInfo>> = _pairInfo
+    private val _pairList: MutableLiveData<List<PairInfo>> = MutableLiveData()
+    val pairList: LiveData<List<PairInfo>> = _pairList
 
-    fun observePairInfo() {
+    fun observePairList() {
         // TODO 仮データのため、developer情報の登録導線を追加する
-        _pairInfo.value = listOf(
+        _pairList.value = listOf(
             PairInfo(
                 teamNumber = 1,
                 developer = listOf(Developer(name = "Dev1"), Developer(name = "Dev2"))

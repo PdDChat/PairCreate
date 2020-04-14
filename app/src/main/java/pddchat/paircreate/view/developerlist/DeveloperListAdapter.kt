@@ -18,9 +18,8 @@ private val ITEM_CALLBACK = object : DiffUtil.ItemCallback<Developer>() {
         oldItem == newItem
 }
 
-internal class DeveloperListAdapter : ListAdapter<Developer, DeveloperListItemViewHolder>(
-    ITEM_CALLBACK
-) {
+internal class DeveloperListAdapter :
+    ListAdapter<Developer, DeveloperListItemViewHolder>(ITEM_CALLBACK) {
 
     internal class DeveloperListItemViewHolder(parent: ViewGroup) :
         RecyclerView.ViewHolder(

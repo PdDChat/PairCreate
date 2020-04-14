@@ -26,20 +26,20 @@ class PairListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val viewModel = PairListViewModel()
-        viewModel.observePairInfo()
+        viewModel.observePairList()
 
         val adapter = PairListAdapter()
         val recyclerView = view.findViewById<RecyclerView>(R.id.pair_recycler_view)
         recyclerView.adapter = adapter.apply {
-            val pairInfo = viewModel.PairInfo.value
-            submitList(pairInfo)
+            val pairList = viewModel.pairList.value
+            submitList(pairList)
         }
 
         // 区切り線の追加
         recyclerView.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
-        val button = view.findViewById<Button>(R.id.setting_button)
-        button.setOnClickListener {
+        val settingButton = view.findViewById<Button>(R.id.setting_button)
+        settingButton.setOnClickListener {
             val navController = this.findNavController()
             navController.navigate(R.id.pair_list_to_developer_list)
         }

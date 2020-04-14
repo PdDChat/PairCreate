@@ -34,7 +34,7 @@ class DeveloperListFragment : Fragment() {
         val adapter = DeveloperListAdapter()
         recyclerView = view.findViewById<RecyclerView>(R.id.developer_recycler_view)
         recyclerView.adapter = adapter.apply {
-            val developer = viewModel.developer.value
+            val developer = viewModel.devList.value
             submitList(developer)
         }
 
@@ -44,8 +44,8 @@ class DeveloperListFragment : Fragment() {
         // TODO 仮でname+countをnameとして渡している。editTextから取得したnameを渡すようにする
         var count = 0
         val name = "dev"
-        val button = view.findViewById<Button>(R.id.register_button)
-        button.setOnClickListener {
+        val registerButton = view.findViewById<Button>(R.id.register_button)
+        registerButton.setOnClickListener {
             count++
             viewModel.register(context, name + count)
             Toast.makeText(context, "register button push!", Toast.LENGTH_SHORT).show()
@@ -55,10 +55,10 @@ class DeveloperListFragment : Fragment() {
     }
 
     private fun fetchDeveloperList(viewModel: DeveloperListViewModel) {
-        viewModel.developer.observe(viewLifecycleOwner, Observer {
+        viewModel.devList.observe(viewLifecycleOwner, Observer {
             val adapter = DeveloperListAdapter()
             recyclerView.adapter = adapter.apply {
-                val developer = viewModel.developer.value
+                val developer = viewModel.devList.value
                 submitList(developer)
             }
         })
