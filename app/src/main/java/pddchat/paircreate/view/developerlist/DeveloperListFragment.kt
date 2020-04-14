@@ -53,9 +53,15 @@ class DeveloperListFragment : Fragment() {
 
         val registerButton = view.findViewById<Button>(R.id.register_button)
         registerButton.setOnClickListener {
-            Toast.makeText(context, "register button push!", Toast.LENGTH_SHORT).show()
-            if (registerName.isEmpty()) return@setOnClickListener // TODO エラー処理
+            if (registerName.isEmpty()) {
+                Toast.makeText(context, "登録する名前を入力してください", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             viewModel.register(context, registerName)
+
+            // 登録名の初期化
+            registerName = ""
+            editText.text.clear()
         }
 
         fetchDeveloperList(viewModel)
