@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -41,14 +42,21 @@ class DeveloperListFragment : Fragment() {
         // 区切り線の追加
         recyclerView.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
-        // TODO 仮でname+countをnameとして渡している。editTextから取得したnameを渡すようにする
-        var count = 0
-        val name = "dev"
+        var registerName = ""
+        val editText = view.findViewById<EditText>(R.id.edit_developer_name)
+        editText.setOnClickListener {
+            // TODO キーボード制御
+            Toast.makeText(context, "edit text push!", Toast.LENGTH_SHORT).show()
+            if (editText.text != null) {
+                registerName = editText.text.toString()
+            }
+        }
+
         val registerButton = view.findViewById<Button>(R.id.register_button)
         registerButton.setOnClickListener {
-            count++
-            viewModel.register(context, name + count)
             Toast.makeText(context, "register button push!", Toast.LENGTH_SHORT).show()
+            if (registerName.isEmpty()) return@setOnClickListener // TODO エラー処理
+            viewModel.register(context, registerName)
         }
 
         fetchDeveloperList(viewModel)
