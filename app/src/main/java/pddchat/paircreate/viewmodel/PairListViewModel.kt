@@ -15,12 +15,10 @@ class PairListViewModel : ViewModel() {
         // TODO 仮データのため、developer情報の登録導線を追加する
         _pairList.value = listOf(
             PairInfo(
-                teamNumber = 1,
-                developer = listOf(Developer(name = "Dev1"), Developer(name = "Dev2"))
+                developers = listOf(Developer(name = "Dev1"), Developer(name = "Dev2"))
             ),
             PairInfo(
-                teamNumber = 2,
-                developer = listOf(Developer(name = "Dev3"), Developer(name = "Dev4"))
+                developers = listOf(Developer(name = "Dev3"), Developer(name = "Dev4"))
             )
         )
     }

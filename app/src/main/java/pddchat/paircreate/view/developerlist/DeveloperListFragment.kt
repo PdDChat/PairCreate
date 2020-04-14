@@ -35,8 +35,8 @@ class DeveloperListFragment : Fragment() {
         val adapter = DeveloperListAdapter()
         recyclerView = view.findViewById<RecyclerView>(R.id.developer_recycler_view)
         recyclerView.adapter = adapter.apply {
-            val developer = viewModel.devList.value
-            submitList(developer)
+            val developers = viewModel.developerList.value
+            submitList(developers)
         }
 
         // 区切り線の追加
@@ -46,7 +46,6 @@ class DeveloperListFragment : Fragment() {
         val editText = view.findViewById<EditText>(R.id.edit_developer_name)
         editText.setOnClickListener {
             // TODO キーボード制御
-            Toast.makeText(context, "edit text push!", Toast.LENGTH_SHORT).show()
             if (editText.text != null) {
                 registerName = editText.text.toString()
             }
@@ -63,11 +62,11 @@ class DeveloperListFragment : Fragment() {
     }
 
     private fun fetchDeveloperList(viewModel: DeveloperListViewModel) {
-        viewModel.devList.observe(viewLifecycleOwner, Observer {
+        viewModel.developerList.observe(viewLifecycleOwner, Observer {
             val adapter = DeveloperListAdapter()
             recyclerView.adapter = adapter.apply {
-                val developer = viewModel.devList.value
-                submitList(developer)
+                val developers = viewModel.developerList.value
+                submitList(developers)
             }
         })
     }

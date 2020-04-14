@@ -10,17 +10,17 @@ import pddchat.paircreate.util.PreferenceUtil.PreferenceKey.KEY_GSON
 
 class DeveloperListViewModel : ViewModel() {
 
-    private val _devList: MutableLiveData<List<Developer>> = MutableLiveData()
-    val devList: LiveData<List<Developer>> = _devList
+    private val _developerList: MutableLiveData<List<Developer>> = MutableLiveData()
+    val developerList: LiveData<List<Developer>> = _developerList
 
     fun register(context: Context?, newName: String) {
         val registerData: ArrayList<Developer> = ArrayList()
-        _devList.value?.forEach {
+        _developerList.value?.forEach {
             registerData.add(it)
         }
 
         registerData.add(Developer(name = newName))
-        _devList.value = registerData
+        _developerList.value = registerData
 
         // List<String>のみをSharedPreferenceに保存する
         val strList: ArrayList<String> = ArrayList()
@@ -39,6 +39,6 @@ class DeveloperListViewModel : ViewModel() {
             devList.add(Developer(name = it))
         }
 
-        _devList.value = devList
+        _developerList.value = devList
     }
 }

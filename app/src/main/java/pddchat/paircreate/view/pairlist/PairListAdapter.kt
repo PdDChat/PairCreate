@@ -12,7 +12,7 @@ import pddchat.paircreate.view.pairlist.PairListAdapter.PairListItemViewHolder
 
 private val ITEM_CALLBACK = object : DiffUtil.ItemCallback<PairInfo>() {
     override fun areItemsTheSame(oldItem: PairInfo, newItem: PairInfo): Boolean =
-        oldItem.teamNumber == newItem.teamNumber
+        oldItem.developers == newItem.developers
 
     override fun areContentsTheSame(oldItem: PairInfo, newItem: PairInfo): Boolean =
         oldItem == newItem
@@ -33,8 +33,8 @@ internal class PairListAdapter : ListAdapter<PairInfo, PairListItemViewHolder>(I
         private val pairName2: TextView = itemView.findViewById(R.id.pair_name2)
 
         fun bind(pairInfo: PairInfo) {
-            pairName1.text = pairInfo.developer[0].name
-            pairName2.text = pairInfo.developer[1].name
+            pairName1.text = pairInfo.developers[0].name
+            pairName2.text = pairInfo.developers[1].name
         }
     }
 
