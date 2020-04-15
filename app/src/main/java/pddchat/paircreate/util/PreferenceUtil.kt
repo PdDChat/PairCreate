@@ -16,7 +16,7 @@ internal class PreferenceUtil  {
     companion object {
         private val gson = Gson()
 
-        fun putDeleloperListGson(context: Context?, key: PreferenceKey, value: List<Developer?>?) {
+        fun putDeveloperListGson(context: Context?, key: PreferenceKey, value: List<Developer?>?) {
             val jsonValue = gson.toJson(value)
             val editor = PreferenceManager.getDefaultSharedPreferences(context).edit()
             editor.putString(key.name, jsonValue)

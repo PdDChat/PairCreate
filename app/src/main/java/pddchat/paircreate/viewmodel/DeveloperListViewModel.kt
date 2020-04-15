@@ -15,6 +15,8 @@ class DeveloperListViewModel : ViewModel() {
 
     fun register(context: Context?, newName: String) {
         val registerData: ArrayList<Developer> = ArrayList()
+
+        // 以前登録している名前があれば、先に追加しておかないと上書きされる
         _developerList.value?.forEach {
             registerData.add(it)
         }
@@ -22,20 +24,14 @@ class DeveloperListViewModel : ViewModel() {
         registerData.add(Developer(name = newName))
         _developerList.value = registerData
 
-        // List<String>のみをSharedPreferenceに保存する
-        val strList: ArrayList<String> = ArrayList()
-        registerData.forEach {
-            strList.add(it.name)
-        }
-
-        PreferenceUtil.putDeleloperListGson(context, KEY_GSON, _developerList.value)
+        PreferenceUtil.putDeveloperListGson(context, KEY_GSON, registerData)
     }
 
     fun observeDeveloper(context: Context?) {
         val devList: ArrayList<Developer> = ArrayList()
-        val preStrList = PreferenceUtil.getDeveloperListGson(context, KEY_GSON)
+        val preDevList = PreferenceUtil.getDeveloperListGson(context, KEY_GSON)
 
-        preStrList.forEach {
+        preDevList.forEach {
             devList.add(it)
         }
 
