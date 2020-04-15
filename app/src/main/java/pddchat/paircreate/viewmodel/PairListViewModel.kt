@@ -25,9 +25,11 @@ class PairListViewModel : ViewModel() {
         val pairList: ArrayList<PairInfo> = arrayListOf()
         val groupA: ArrayList<String> = arrayListOf()
         val groupB: ArrayList<String> = arrayListOf()
+        val shuffledDevList: ArrayList<Developer> = arrayListOf()
+            shuffledDevList.addAll(devList.shuffled())
 
         val numList: MutableList<Pair<Int, Developer>> = mutableListOf()
-        devList.indices.forEach { i -> numList.add((i to devList[i])) }
+        devList.indices.forEach { i -> numList.add((i to shuffledDevList[i])) }
 
         // 受け取ったListを2分割する
         numList.map {
