@@ -28,7 +28,7 @@ class DeveloperListViewModel : ViewModel() {
             strList.add(it.name)
         }
 
-        PreferenceUtil.putStringListGson(context, KEY_GSON, strList)
+        PreferenceUtil.putStringListGson(context, KEY_GSON, _developerList.value)
     }
 
     fun observeDeveloper(context: Context?) {
@@ -36,7 +36,7 @@ class DeveloperListViewModel : ViewModel() {
         val preStrList = PreferenceUtil.getStringListGson(context, KEY_GSON)
 
         preStrList.forEach {
-            devList.add(Developer(name = it))
+            devList.add(it)
         }
 
         _developerList.value = devList
