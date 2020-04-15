@@ -26,7 +26,7 @@ class PairListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val viewModel = PairListViewModel()
-        viewModel.observePairList()
+        viewModel.observePairList(context)
 
         val adapter = PairListAdapter()
         val recyclerView = view.findViewById<RecyclerView>(R.id.pair_recycler_view)

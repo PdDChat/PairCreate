@@ -1,6 +1,7 @@
 package pddchat.paircreate.view.pairlist
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
@@ -12,7 +13,7 @@ import pddchat.paircreate.view.pairlist.PairListAdapter.PairListItemViewHolder
 
 private val ITEM_CALLBACK = object : DiffUtil.ItemCallback<PairInfo>() {
     override fun areItemsTheSame(oldItem: PairInfo, newItem: PairInfo): Boolean =
-        oldItem.developers == newItem.developers
+        oldItem.pairNo == newItem.pairNo
 
     override fun areContentsTheSame(oldItem: PairInfo, newItem: PairInfo): Boolean =
         oldItem == newItem
@@ -33,8 +34,12 @@ internal class PairListAdapter : ListAdapter<PairInfo, PairListItemViewHolder>(I
         private val pairName2: TextView = itemView.findViewById(R.id.pair_name2)
 
         fun bind(pairInfo: PairInfo) {
-            pairName1.text = pairInfo.developers[0].name
-            pairName2.text = pairInfo.developers[1].name
+            pairName1.text = pairInfo.pairName1
+            pairName2.text = pairInfo.pairName2
+
+            if (pairName2.text.isEmpty()) {
+                pairName2.visibility = View.GONE
+            }
         }
     }
 
