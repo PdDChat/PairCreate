@@ -5,36 +5,21 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import pddchat.paircreate.model.Developer
-import pddchat.paircreate.util.PreferenceUtil
-import pddchat.paircreate.util.PreferenceUtil.PreferenceKey.KEY_GSON
+import pddchat.paircreate.repository.DeveloperListRepository
 
 class DeveloperListViewModel : ViewModel() {
 
     private val _developerList: MutableLiveData<List<Developer>> = MutableLiveData()
     val developerList: LiveData<List<Developer>> = _developerList
 
+    private val repository: DeveloperListRepository = DeveloperListRepository()
+
     fun register(context: Context?, newName: String) {
-        val registerData: ArrayList<Developer> = ArrayList()
-
-        // 以前登録している名前があれば、先に追加しておかないと上書きされる
-        _developerList.value?.forEach {
-            registerData.add(it)
-        }
-
-        registerData.add(Developer(name = newName))
-        _developerList.value = registerData
-
-        PreferenceUtil.putDeveloperListGson(context, KEY_GSON, registerData)
+        val devList = _developerList.value
+        _developerList.value = repository.update(context, newName, devList)
     }
 
     fun observeDeveloper(context: Context?) {
-        val devList: ArrayList<Developer> = ArrayList()
-        val preDevList = PreferenceUtil.getDeveloperListGson(context, KEY_GSON)
-
-        preDevList.forEach {
-            devList.add(it)
-        }
-
-        _developerList.value = devList
+        _developerList.value = repository.getDeveloperlist(context)
     }
 }
