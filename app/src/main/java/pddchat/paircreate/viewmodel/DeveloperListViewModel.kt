@@ -19,6 +19,11 @@ class DeveloperListViewModel : ViewModel() {
         _developerList.value = repository.update(context, newName, devList)
     }
 
+    fun delete(context: Context?, deleteName: String) {
+        val devList = _developerList.value
+        _developerList.value = repository.delete(context, deleteName, devList)
+    }
+
     fun observeDeveloper(context: Context?) {
         _developerList.value = repository.getDeveloperlist(context)
     }

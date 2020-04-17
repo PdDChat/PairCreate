@@ -64,6 +64,19 @@ class DeveloperListFragment : Fragment() {
             editText.text.clear()
         }
 
+        val deleteButton = view.findViewById<Button>(R.id.delete_button)
+        deleteButton.setOnClickListener {
+            if (registerName.isEmpty()) {
+                Toast.makeText(context, "削除する名前を入力してください", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            viewModel.delete(context, registerName)
+
+            // 削除名の初期化
+            registerName = ""
+            editText.text.clear()
+        }
+
         fetchDeveloperList(viewModel)
     }
 

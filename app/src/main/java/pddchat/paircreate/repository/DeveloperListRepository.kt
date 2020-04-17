@@ -20,6 +20,20 @@ class DeveloperListRepository {
         return registerData
     }
 
+    fun delete(context: Context?, deleteName: String, developerList: List<Developer>?) : List<Developer> {
+        val registerData: ArrayList<Developer> = ArrayList()
+
+        // 以前登録している名前があれば、先に追加しておかないと上書きされる
+        developerList?.forEach {
+            if (it.name != deleteName) {
+                registerData.add(it)
+            }
+        }
+        PreferenceUtil.putDeveloperListGson(context, PreferenceUtil.PreferenceKey.KEY_GSON, registerData)
+
+        return registerData
+    }
+
     fun getDeveloperlist(context: Context?) : List<Developer> {
         val devList: ArrayList<Developer> = ArrayList()
 
