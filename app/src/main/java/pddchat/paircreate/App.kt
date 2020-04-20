@@ -1,6 +1,7 @@
 package pddchat.paircreate
 
 import android.app.Application
+import pddchat.paircreate.log.AppTree
 import timber.log.Timber
 
 class App : Application() {
@@ -13,7 +14,7 @@ class App : Application() {
 
     private fun setupLogger() {
         if (BuildConfig.DEBUG) {
-            Timber.plant(Timber.DebugTree())
+            Timber.plant(AppTree())
         }
     }
 }
