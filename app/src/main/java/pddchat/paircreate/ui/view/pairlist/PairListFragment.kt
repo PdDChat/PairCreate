@@ -1,4 +1,4 @@
-package pddchat.paircreate.view.pairlist
+package pddchat.paircreate.ui.view.pairlist
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import pddchat.paircreate.R
-import pddchat.paircreate.viewmodel.PairListViewModel
+import pddchat.paircreate.ui.viewmodel.PairListViewModel
 
 class PairListFragment : Fragment() {
 

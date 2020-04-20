@@ -1,11 +1,11 @@
-package pddchat.paircreate.viewmodel
+package pddchat.paircreate.ui.viewmodel
 
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import pddchat.paircreate.model.Developer
-import pddchat.paircreate.repository.DeveloperListRepository
+import pddchat.paircreate.data.model.Developer
+import pddchat.paircreate.data.repository.DeveloperListRepository
 
 class DeveloperListViewModel : ViewModel() {
 

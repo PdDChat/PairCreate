@@ -1,4 +1,4 @@
-package pddchat.paircreate.view
+package pddchat.paircreate.ui.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

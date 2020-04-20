@@ -1,4 +1,4 @@
-package pddchat.paircreate.model
+package pddchat.paircreate.data.model
 
 data class PairInfo (
     val pairNo: Int, // TODO 不要な気がするが、一旦つけている

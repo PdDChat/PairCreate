@@ -1,4 +1,4 @@
-package pddchat.paircreate.view.developerlist
+package pddchat.paircreate.ui.view.developerlist
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import pddchat.paircreate.R
-import pddchat.paircreate.viewmodel.DeveloperListViewModel
+import pddchat.paircreate.ui.viewmodel.DeveloperListViewModel
 
 class DeveloperListFragment : Fragment() {
 

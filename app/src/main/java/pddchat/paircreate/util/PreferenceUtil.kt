@@ -5,7 +5,7 @@ import android.text.TextUtils
 import androidx.preference.PreferenceManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import pddchat.paircreate.model.Developer
+import pddchat.paircreate.data.model.Developer
 
 internal class PreferenceUtil  {
 

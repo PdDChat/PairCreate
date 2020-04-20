@@ -1,7 +1,7 @@
-package pddchat.paircreate.repository
+package pddchat.paircreate.data.repository
 
 import android.content.Context
-import pddchat.paircreate.model.Developer
+import pddchat.paircreate.data.model.Developer
 import pddchat.paircreate.util.PreferenceUtil
 
 class DeveloperListRepository {
@@ -23,7 +23,7 @@ class DeveloperListRepository {
     fun delete(context: Context?, deleteName: String, developerList: List<Developer>?) : List<Developer> {
         val registerData: ArrayList<Developer> = ArrayList()
 
-        // 以前登録している名前があれば、先に追加しておかないと上書きされる
+        // 削除対象以外を追加する
         developerList?.forEach {
             if (it.name != deleteName) {
                 registerData.add(it)

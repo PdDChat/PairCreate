@@ -1,8 +1,8 @@
-package pddchat.paircreate.repository
+package pddchat.paircreate.data.repository
 
 import android.content.Context
-import pddchat.paircreate.model.Developer
-import pddchat.paircreate.model.PairInfo
+import pddchat.paircreate.data.model.Developer
+import pddchat.paircreate.data.model.PairInfo
 import pddchat.paircreate.util.PreferenceUtil
 import java.util.ArrayList
 

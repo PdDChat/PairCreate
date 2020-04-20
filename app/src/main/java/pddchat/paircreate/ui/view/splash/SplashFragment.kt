@@ -1,4 +1,4 @@
-package pddchat.paircreate.view.splash
+package pddchat.paircreate.ui.view.splash
 
 import android.os.Bundle
 import android.view.LayoutInflater
