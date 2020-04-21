@@ -7,31 +7,29 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import pddchat.paircreate.data.model.Developer
 
-internal class PreferenceUtil  {
+class PreferenceUtil(private val context: Context?)  {
 
     enum class PreferenceKey {
         KEY_GSON
     }
 
-    companion object {
-        private val gson = Gson()
+    private val gson = Gson()
 
-        fun putDeveloperListGson(context: Context?, key: PreferenceKey, value: List<Developer?>?) {
-            val jsonValue = gson.toJson(value)
-            val editor = PreferenceManager.getDefaultSharedPreferences(context).edit()
-            editor.putString(key.name, jsonValue)
-            editor.apply()
-        }
+    fun putDeveloperListGson(key: PreferenceKey, value: List<Developer?>?) {
+        val jsonValue = gson.toJson(value)
+        val editor = PreferenceManager.getDefaultSharedPreferences(context).edit()
+        editor.putString(key.name, jsonValue)
+        editor.apply()
+    }
 
-        fun getDeveloperListGson(context: Context?, key: PreferenceKey): List<Developer> {
-            val jsonValue = PreferenceManager.getDefaultSharedPreferences(context).getString(key.name, "")
-            // jsonValueが空文字の場合、fromJson()でnullになるのでnewして返す
-            val type = object : TypeToken<List<Developer?>?>() {}.type
-            return if (TextUtils.isEmpty(jsonValue)) {
-                listOf()
-            } else {
-                gson.fromJson(jsonValue!!, type)
-            }
+    fun getDeveloperListGson(key: PreferenceKey): List<Developer> {
+        val jsonValue = PreferenceManager.getDefaultSharedPreferences(context).getString(key.name, "")
+        // jsonValueが空文字の場合、fromJson()でnullになるのでnewして返す
+        val type = object : TypeToken<List<Developer?>?>() {}.type
+        return if (TextUtils.isEmpty(jsonValue)) {
+            listOf()
+        } else {
+            gson.fromJson(jsonValue!!, type)
         }
     }
 }

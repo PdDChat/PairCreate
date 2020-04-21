@@ -9,7 +9,7 @@ import java.util.ArrayList
 class PairListRepository {
 
     fun createPairList(context: Context?): List<PairInfo> {
-        val devList = PreferenceUtil.getDeveloperListGson(context, PreferenceUtil.PreferenceKey.KEY_GSON)
+        val devList = PreferenceUtil(context).getDeveloperListGson(PreferenceUtil.PreferenceKey.KEY_GSON)
         val pairList: ArrayList<PairInfo> = arrayListOf()
         val groupA: ArrayList<String> = arrayListOf()
         val groupB: ArrayList<String> = arrayListOf()

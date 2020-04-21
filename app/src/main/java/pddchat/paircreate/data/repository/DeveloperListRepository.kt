@@ -15,7 +15,7 @@ class DeveloperListRepository {
         }
         registerData.add(Developer(name = newName))
 
-        PreferenceUtil.putDeveloperListGson(context, PreferenceUtil.PreferenceKey.KEY_GSON, registerData)
+        PreferenceUtil(context).putDeveloperListGson(PreferenceUtil.PreferenceKey.KEY_GSON, registerData)
 
         return registerData
     }
@@ -29,7 +29,7 @@ class DeveloperListRepository {
                 registerData.add(it)
             }
         }
-        PreferenceUtil.putDeveloperListGson(context, PreferenceUtil.PreferenceKey.KEY_GSON, registerData)
+        PreferenceUtil(context).putDeveloperListGson(PreferenceUtil.PreferenceKey.KEY_GSON, registerData)
 
         return registerData
     }
@@ -37,7 +37,7 @@ class DeveloperListRepository {
     fun getDeveloperlist(context: Context?) : List<Developer> {
         val devList: ArrayList<Developer> = ArrayList()
 
-        val preDevList = PreferenceUtil.getDeveloperListGson(context, PreferenceUtil.PreferenceKey.KEY_GSON)
+        val preDevList = PreferenceUtil(context).getDeveloperListGson(PreferenceUtil.PreferenceKey.KEY_GSON)
         preDevList.forEach { devList.add(it) }
 
         return devList
