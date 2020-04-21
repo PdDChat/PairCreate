@@ -1,14 +1,14 @@
 package pddchat.paircreate.ui.view.pairlist
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import pddchat.paircreate.R
 import pddchat.paircreate.data.model.PairInfo
+import pddchat.paircreate.databinding.ItemPairListBindingImpl
 import pddchat.paircreate.ui.view.pairlist.PairListAdapter.PairListItemViewHolder
 
 private val ITEM_CALLBACK = object : DiffUtil.ItemCallback<PairInfo>() {
@@ -20,30 +20,17 @@ private val ITEM_CALLBACK = object : DiffUtil.ItemCallback<PairInfo>() {
 }
 
 internal class PairListAdapter : ListAdapter<PairInfo, PairListItemViewHolder>(ITEM_CALLBACK) {
-
-    internal class PairListItemViewHolder(parent: ViewGroup) :
-        RecyclerView.ViewHolder(
-            LayoutInflater.from(parent.context).inflate(
-                R.layout.item_pair_list,
-                parent,
-                false
-            )
-        ) {
-
-        private val pairName1: TextView = itemView.findViewById(R.id.pair_name1)
-        private val pairName2: TextView = itemView.findViewById(R.id.pair_name2)
-
+    internal class PairListItemViewHolder(
+        private val binding: ItemPairListBindingImpl
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(pairInfo: PairInfo) {
-            pairName1.text = pairInfo.pairName1
-            pairName2.text = pairInfo.pairName2
-
-            if (pairName2.text.isEmpty()) {
-                pairName2.visibility = View.GONE
-            }
+            binding.pairInfo = pairInfo
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = PairListItemViewHolder(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = PairListItemViewHolder(
+        DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_pair_list, parent, false)
+    )
 
     override fun onBindViewHolder(holder: PairListItemViewHolder, position: Int) = holder.bind(getItem(position))
 }
