@@ -1,6 +1,5 @@
 package pddchat.paircreate.ui.viewmodel
 
-import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,8 +13,8 @@ class PairListViewModel : ViewModel() {
 
     private val repository: PairListRepository = PairListRepository()
 
-    fun observePairList(context: Context?) {
-        val pairList = repository.createPairList(context)
+    fun observePairList() {
+        val pairList = repository.createPairList()
         _pairList.value = pairList
     }
 }

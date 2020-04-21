@@ -30,7 +30,7 @@ class DeveloperListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val viewModel = DeveloperListViewModel()
-        viewModel.observeDeveloper(context)
+        viewModel.observeDeveloper()
 
         val adapter = DeveloperListAdapter()
         recyclerView = view.findViewById<RecyclerView>(R.id.developer_recycler_view)
@@ -57,7 +57,7 @@ class DeveloperListFragment : Fragment() {
                 Toast.makeText(context, "登録する名前を入力してください", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            viewModel.register(context, registerName)
+            viewModel.register(registerName)
 
             // 登録名の初期化
             registerName = ""
@@ -70,7 +70,7 @@ class DeveloperListFragment : Fragment() {
                 Toast.makeText(context, "削除する名前を入力してください", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            viewModel.delete(context, registerName)
+            viewModel.delete(registerName)
 
             // 削除名の初期化
             registerName = ""

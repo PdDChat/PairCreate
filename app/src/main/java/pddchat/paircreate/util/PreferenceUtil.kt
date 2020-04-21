@@ -1,13 +1,13 @@
 package pddchat.paircreate.util
 
-import android.content.Context
 import android.text.TextUtils
 import androidx.preference.PreferenceManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import pddchat.paircreate.App.Companion.context
 import pddchat.paircreate.data.model.Developer
 
-class PreferenceUtil(private val context: Context?)  {
+class PreferenceUtil  {
 
     enum class PreferenceKey {
         KEY_GSON

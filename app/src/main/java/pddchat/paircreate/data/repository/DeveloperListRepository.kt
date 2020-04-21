@@ -1,12 +1,11 @@
 package pddchat.paircreate.data.repository
 
-import android.content.Context
 import pddchat.paircreate.data.model.Developer
 import pddchat.paircreate.util.PreferenceUtil
 
 class DeveloperListRepository {
 
-    fun update(context: Context?, newName: String, developerList: List<Developer>?) : List<Developer> {
+    fun update(newName: String, developerList: List<Developer>?) : List<Developer> {
         val registerData: ArrayList<Developer> = ArrayList()
 
         // 以前登録している名前があれば、先に追加しておかないと上書きされる
@@ -15,12 +14,12 @@ class DeveloperListRepository {
         }
         registerData.add(Developer(name = newName))
 
-        PreferenceUtil(context).putDeveloperListGson(PreferenceUtil.PreferenceKey.KEY_GSON, registerData)
+        PreferenceUtil().putDeveloperListGson(PreferenceUtil.PreferenceKey.KEY_GSON, registerData)
 
         return registerData
     }
 
-    fun delete(context: Context?, deleteName: String, developerList: List<Developer>?) : List<Developer> {
+    fun delete(deleteName: String, developerList: List<Developer>?) : List<Developer> {
         val registerData: ArrayList<Developer> = ArrayList()
 
         // 削除対象以外を追加する
@@ -29,15 +28,15 @@ class DeveloperListRepository {
                 registerData.add(it)
             }
         }
-        PreferenceUtil(context).putDeveloperListGson(PreferenceUtil.PreferenceKey.KEY_GSON, registerData)
+        PreferenceUtil().putDeveloperListGson(PreferenceUtil.PreferenceKey.KEY_GSON, registerData)
 
         return registerData
     }
 
-    fun getDeveloperlist(context: Context?) : List<Developer> {
+    fun getDeveloperlist() : List<Developer> {
         val devList: ArrayList<Developer> = ArrayList()
 
-        val preDevList = PreferenceUtil(context).getDeveloperListGson(PreferenceUtil.PreferenceKey.KEY_GSON)
+        val preDevList = PreferenceUtil().getDeveloperListGson(PreferenceUtil.PreferenceKey.KEY_GSON)
         preDevList.forEach { devList.add(it) }
 
         return devList

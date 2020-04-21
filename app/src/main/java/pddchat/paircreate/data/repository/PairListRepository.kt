@@ -1,6 +1,5 @@
 package pddchat.paircreate.data.repository
 
-import android.content.Context
 import pddchat.paircreate.data.model.Developer
 import pddchat.paircreate.data.model.PairInfo
 import pddchat.paircreate.util.PreferenceUtil
@@ -8,8 +7,8 @@ import java.util.ArrayList
 
 class PairListRepository {
 
-    fun createPairList(context: Context?): List<PairInfo> {
-        val devList = PreferenceUtil(context).getDeveloperListGson(PreferenceUtil.PreferenceKey.KEY_GSON)
+    fun createPairList(): List<PairInfo> {
+        val devList = PreferenceUtil().getDeveloperListGson(PreferenceUtil.PreferenceKey.KEY_GSON)
         val pairList: ArrayList<PairInfo> = arrayListOf()
         val groupA: ArrayList<String> = arrayListOf()
         val groupB: ArrayList<String> = arrayListOf()

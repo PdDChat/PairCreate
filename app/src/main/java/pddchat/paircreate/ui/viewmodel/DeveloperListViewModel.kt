@@ -1,6 +1,5 @@
 package pddchat.paircreate.ui.viewmodel
 
-import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,17 +13,17 @@ class DeveloperListViewModel : ViewModel() {
 
     private val repository: DeveloperListRepository = DeveloperListRepository()
 
-    fun register(context: Context?, newName: String) {
+    fun register(newName: String) {
         val devList = _developerList.value
-        _developerList.value = repository.update(context, newName, devList)
+        _developerList.value = repository.update(newName, devList)
     }
 
-    fun delete(context: Context?, deleteName: String) {
+    fun delete(deleteName: String) {
         val devList = _developerList.value
-        _developerList.value = repository.delete(context, deleteName, devList)
+        _developerList.value = repository.delete(deleteName, devList)
     }
 
-    fun observeDeveloper(context: Context?) {
-        _developerList.value = repository.getDeveloperlist(context)
+    fun observeDeveloper() {
+        _developerList.value = repository.getDeveloperlist()
     }
 }
