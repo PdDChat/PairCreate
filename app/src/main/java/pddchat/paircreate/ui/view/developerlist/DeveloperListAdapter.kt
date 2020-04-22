@@ -2,12 +2,13 @@ package pddchat.paircreate.ui.view.developerlist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import pddchat.paircreate.R
 import pddchat.paircreate.data.model.Developer
+import pddchat.paircreate.databinding.ItemDeveloperListBindingImpl
 import pddchat.paircreate.ui.view.developerlist.DeveloperListAdapter.DeveloperListItemViewHolder
 
 private val ITEM_CALLBACK = object : DiffUtil.ItemCallback<Developer>() {
@@ -18,26 +19,18 @@ private val ITEM_CALLBACK = object : DiffUtil.ItemCallback<Developer>() {
         oldItem == newItem
 }
 
-internal class DeveloperListAdapter :
-    ListAdapter<Developer, DeveloperListItemViewHolder>(ITEM_CALLBACK) {
-
-    internal class DeveloperListItemViewHolder(parent: ViewGroup) :
-        RecyclerView.ViewHolder(
-            LayoutInflater.from(parent.context).inflate(
-                R.layout.item_developer_list,
-                parent,
-                false
-            )
-        ) {
-
-        private val devName: TextView = itemView.findViewById(R.id.developer_name)
-
+internal class DeveloperListAdapter : ListAdapter<Developer, DeveloperListItemViewHolder>(ITEM_CALLBACK) {
+    internal class DeveloperListItemViewHolder(
+        private val binding: ItemDeveloperListBindingImpl
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(developer: Developer) {
-            devName.text = developer.name
+            binding.developer = developer
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = DeveloperListItemViewHolder(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = DeveloperListItemViewHolder(
+        DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_developer_list, parent, false)
+    )
 
     override fun onBindViewHolder(holder: DeveloperListItemViewHolder, position: Int) = holder.bind(getItem(position))
 }
