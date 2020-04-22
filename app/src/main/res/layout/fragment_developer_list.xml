@@ -34,6 +34,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginBottom="10dp"
             android:text="@string/delete"
+            android:onClick="@{() -> viewModel.delete()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -44,6 +45,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:text="@string/register"
+            android:onClick="@{() -> viewModel.register()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -55,6 +57,7 @@
             android:autofillHints="@string/input_name_hint"
             android:hint="@string/input_name_hint"
             android:inputType="text"
+            android:text="@={viewModel.name}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/delete_button"
             app:layout_constraintEnd_toStartOf="@+id/register_button" />
