@@ -1,4 +1,4 @@
-package pddchat.paircreate.ui.view.developerlist
+package pddchat.paircreate.ui.developerlist
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import pddchat.paircreate.databinding.FragmentDeveloperListBinding
-import pddchat.paircreate.ui.viewmodel.DeveloperListViewModel
 
 class DeveloperListFragment : Fragment() {
 
@@ -31,7 +30,7 @@ class DeveloperListFragment : Fragment() {
 
         viewModel.observeDeveloper()
         viewModel.developerList.observe(viewLifecycleOwner, Observer {
-            adapter.apply { submitList(it) }
+            adapter.submitList(it)
         })
     }
 }

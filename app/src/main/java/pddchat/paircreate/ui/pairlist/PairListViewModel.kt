@@ -1,4 +1,4 @@
-package pddchat.paircreate.ui.viewmodel
+package pddchat.paircreate.ui.pairlist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package pddchat.paircreate.ui.view.pairlist
+package pddchat.paircreate.ui.pairlist
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.lifecycle.observe
+import androidx.lifecycle.Observer
 import pddchat.paircreate.R
 import pddchat.paircreate.databinding.FragmentPairListBinding
-import pddchat.paircreate.ui.viewmodel.PairListViewModel
 
 class PairListFragment : Fragment() {
 
@@ -33,9 +32,9 @@ class PairListFragment : Fragment() {
         binding.pairRecyclerView.adapter = adapter
 
         viewModel.observePairList()
-        viewModel.pairList.observe(viewLifecycleOwner) {
+        viewModel.pairList.observe(viewLifecycleOwner, Observer {
             adapter.submitList(it)
-        }
+        })
 
         binding.settingButton.setOnClickListener{
             findNavController().navigate(R.id.pair_list_to_developer_list)

@@ -1,4 +1,4 @@
-package pddchat.paircreate.ui.view.pairlist
+package pddchat.paircreate.ui.pairlist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import pddchat.paircreate.R
 import pddchat.paircreate.data.model.PairInfo
 import pddchat.paircreate.databinding.ItemPairListBindingImpl
-import pddchat.paircreate.ui.view.pairlist.PairListAdapter.PairListItemViewHolder
 
 private val ITEM_CALLBACK = object : DiffUtil.ItemCallback<PairInfo>() {
     override fun areItemsTheSame(oldItem: PairInfo, newItem: PairInfo): Boolean =
@@ -19,7 +18,7 @@ private val ITEM_CALLBACK = object : DiffUtil.ItemCallback<PairInfo>() {
         oldItem == newItem
 }
 
-internal class PairListAdapter : ListAdapter<PairInfo, PairListItemViewHolder>(ITEM_CALLBACK) {
+internal class PairListAdapter : ListAdapter<PairInfo, PairListAdapter.PairListItemViewHolder>(ITEM_CALLBACK) {
     internal class PairListItemViewHolder(
         private val binding: ItemPairListBindingImpl
     ) : RecyclerView.ViewHolder(binding.root) {

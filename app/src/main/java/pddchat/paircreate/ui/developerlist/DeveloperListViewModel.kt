@@ -1,4 +1,4 @@
-package pddchat.paircreate.ui.viewmodel
+package pddchat.paircreate.ui.developerlist
 
 import android.widget.Toast
 import androidx.lifecycle.LiveData

@@ -1,4 +1,4 @@
-package pddchat.paircreate.ui.view.splash
+package pddchat.paircreate.ui.splash
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import pddchat.paircreate.R
 import pddchat.paircreate.databinding.FragmentSplashBinding
-import pddchat.paircreate.ui.viewmodel.SplashViewModel
 
 class SplashFragment : Fragment() {
 

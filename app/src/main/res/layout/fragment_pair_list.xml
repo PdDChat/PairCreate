@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="pddchat.paircreate.ui.viewmodel.PairListViewModel" />
+            type="pddchat.paircreate.ui.pairlist.PairListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

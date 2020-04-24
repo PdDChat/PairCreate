@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
         <data>
-                        <variable
-                            name="viewModel"
-                            type="pddchat.paircreate.ui.viewmodel.SplashViewModel" />
+            <variable
+                name="viewModel"
+                type="pddchat.paircreate.ui.splash.SplashViewModel" />
         </data>
 
         <androidx.constraintlayout.widget.ConstraintLayout

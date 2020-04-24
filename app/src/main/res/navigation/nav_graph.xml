@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="pddchat.paircreate.ui.view.splash.SplashFragment"
+        android:name="pddchat.paircreate.ui.splash.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash">
 
@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/pairListFragment"
-        android:name="pddchat.paircreate.ui.view.pairlist.PairListFragment"
+        android:name="pddchat.paircreate.ui.pairlist.PairListFragment"
         android:label="fragment_pair_list"
         tools:layout="@layout/fragment_pair_list">
 
@@ -32,7 +32,7 @@
 
     <fragment
         android:id="@+id/developerListFragment"
-        android:name="pddchat.paircreate.ui.view.developerlist.DeveloperListFragment"
+        android:name="pddchat.paircreate.ui.developerlist.DeveloperListFragment"
         android:label="fragment_developer_list"
         tools:layout="@layout/fragment_developer_list">
     </fragment>

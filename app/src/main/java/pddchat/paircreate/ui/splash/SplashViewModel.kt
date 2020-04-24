@@ -1,4 +1,4 @@
-package pddchat.paircreate.ui.viewmodel
+package pddchat.paircreate.ui.splash
 
 import androidx.lifecycle.ViewModel
 
