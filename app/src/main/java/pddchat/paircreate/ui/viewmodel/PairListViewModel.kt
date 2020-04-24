@@ -14,7 +14,6 @@ class PairListViewModel : ViewModel() {
     private val repository: PairListRepository = PairListRepository()
 
     fun observePairList() {
-        val pairList = repository.createPairList()
-        _pairList.value = pairList
+        _pairList.value = repository.createPairList()
     }
 }

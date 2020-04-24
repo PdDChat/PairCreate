@@ -6,9 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.observe
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.RecyclerView
 import pddchat.paircreate.databinding.FragmentDeveloperListBinding
 import pddchat.paircreate.ui.viewmodel.DeveloperListViewModel
 
@@ -32,20 +30,8 @@ class DeveloperListFragment : Fragment() {
         binding.developerRecyclerView.adapter = adapter
 
         viewModel.observeDeveloper()
-        viewModel.developerList.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
-        }
-
-        fetchDeveloperList(viewModel, binding.developerRecyclerView)
-    }
-
-    private fun fetchDeveloperList(viewModel: DeveloperListViewModel, recyclerView: RecyclerView) {
         viewModel.developerList.observe(viewLifecycleOwner, Observer {
-            val adapter = DeveloperListAdapter()
-            recyclerView.adapter = adapter.apply {
-                val developers = viewModel.developerList.value
-                submitList(developers)
-            }
+            adapter.apply { submitList(it) }
         })
     }
 }
