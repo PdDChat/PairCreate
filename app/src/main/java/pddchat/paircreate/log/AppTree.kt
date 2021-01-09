@@ -46,19 +46,14 @@ class AppTree : Timber.DebugTree() {
 
     private fun printSingleLine(priority: Int, tag: String?, message: String?) {
         if (priority == Log.ASSERT) {
-            Log.wtf(tag, message)
+            Timber.wtf(message)
         } else {
-            Log.println(priority, tag, message)
+            message?.let { Log.println(priority, tag, it) }
         }
     }
 
-    private fun getCallerInfo(stacks: Array<StackTraceElement>?): String? {
-        return if (stacks == null || stacks.size < 5) {
-            ""
-        } else {
-            formatForLogCat(stacks[5])
-        }
-    }
+    private fun getCallerInfo(stacks: Array<StackTraceElement>?): String? =
+        if (stacks == null || stacks.size < 5) "" else formatForLogCat(stacks[5])
 
     private fun formatForLogCat(stack: StackTraceElement): String? {
         val className = stack.className
