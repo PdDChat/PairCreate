@@ -18,14 +18,14 @@ class DeveloperListViewModel : ViewModel() {
     private val repository: DeveloperListRepository = DeveloperListRepository()
 
     fun observeDeveloper() {
-        _developerList.value = repository.getDeveloperlist()
+        _developerList.value = repository.getDeveloperList()
     }
 
     fun register() {
         val devList = _developerList.value
         val newName = name.value ?: ""
 
-        if(newName.isEmpty()) {
+        if (newName.isEmpty()) {
             Toast.makeText(context, "登録する名前を入力してください", Toast.LENGTH_SHORT).show()
             return
         }
@@ -37,7 +37,7 @@ class DeveloperListViewModel : ViewModel() {
         val devList = _developerList.value
         val deleteName = name.value ?: ""
 
-        if(deleteName.isEmpty()) {
+        if (deleteName.isEmpty()) {
             Toast.makeText(context, "削除する名前を入力してください", Toast.LENGTH_SHORT).show()
             return
         }

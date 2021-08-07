@@ -5,8 +5,8 @@ import pddchat.paircreate.util.PreferenceUtil
 
 class DeveloperListRepository {
 
-    fun update(newName: String, developerList: List<Developer>?) : List<Developer> {
-        val registerData: ArrayList<Developer> = ArrayList()
+    fun update(newName: String, developerList: List<Developer>?): List<Developer> {
+        val registerData = ArrayList<Developer>()
 
         // 以前登録している名前があれば、先に追加しておかないと上書きされる
         developerList?.forEach {
@@ -19,8 +19,8 @@ class DeveloperListRepository {
         return registerData
     }
 
-    fun delete(deleteName: String, developerList: List<Developer>?) : List<Developer> {
-        val registerData: ArrayList<Developer> = ArrayList()
+    fun delete(deleteName: String, developerList: List<Developer>?): List<Developer> {
+        val registerData = ArrayList<Developer>()
 
         // 削除対象以外を追加する
         developerList?.forEach {
@@ -33,8 +33,8 @@ class DeveloperListRepository {
         return registerData
     }
 
-    fun getDeveloperlist() : List<Developer> {
-        val devList: ArrayList<Developer> = ArrayList()
+    fun getDeveloperList(): List<Developer> {
+        val devList = ArrayList<Developer>()
 
         val preDevList = PreferenceUtil().getDeveloperListGson(PreferenceUtil.PreferenceKey.KEY_GSON)
         preDevList.forEach { devList.add(it) }

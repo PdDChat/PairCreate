@@ -11,11 +11,8 @@ import pddchat.paircreate.data.model.Developer
 import pddchat.paircreate.databinding.ItemDeveloperListBindingImpl
 
 private val ITEM_CALLBACK = object : DiffUtil.ItemCallback<Developer>() {
-    override fun areItemsTheSame(oldItem: Developer, newItem: Developer): Boolean =
-        oldItem.name == newItem.name
-
-    override fun areContentsTheSame(oldItem: Developer, newItem: Developer): Boolean =
-        oldItem == newItem
+    override fun areItemsTheSame(oldItem: Developer, newItem: Developer): Boolean = oldItem.name == newItem.name
+    override fun areContentsTheSame(oldItem: Developer, newItem: Developer): Boolean = oldItem == newItem
 }
 
 internal class DeveloperListAdapter : ListAdapter<Developer, DeveloperListAdapter.DeveloperListItemViewHolder>(ITEM_CALLBACK) {

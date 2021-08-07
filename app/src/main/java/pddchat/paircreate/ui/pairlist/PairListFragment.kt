@@ -15,7 +15,7 @@ class PairListFragment : Fragment() {
 
     private lateinit var binding: FragmentPairListBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentPairListBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -36,7 +36,7 @@ class PairListFragment : Fragment() {
             adapter.submitList(it)
         })
 
-        binding.settingButton.setOnClickListener{
+        binding.settingButton.setOnClickListener {
             findNavController().navigate(R.id.pair_list_to_developer_list)
         }
     }

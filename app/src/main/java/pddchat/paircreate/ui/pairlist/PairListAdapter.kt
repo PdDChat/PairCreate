@@ -11,11 +11,8 @@ import pddchat.paircreate.data.model.PairInfo
 import pddchat.paircreate.databinding.ItemPairListBindingImpl
 
 private val ITEM_CALLBACK = object : DiffUtil.ItemCallback<PairInfo>() {
-    override fun areItemsTheSame(oldItem: PairInfo, newItem: PairInfo): Boolean =
-        oldItem.pairNo == newItem.pairNo
-
-    override fun areContentsTheSame(oldItem: PairInfo, newItem: PairInfo): Boolean =
-        oldItem == newItem
+    override fun areItemsTheSame(oldItem: PairInfo, newItem: PairInfo): Boolean = oldItem.pairNo == newItem.pairNo
+    override fun areContentsTheSame(oldItem: PairInfo, newItem: PairInfo): Boolean = oldItem == newItem
 }
 
 internal class PairListAdapter : ListAdapter<PairInfo, PairListAdapter.PairListItemViewHolder>(ITEM_CALLBACK) {
